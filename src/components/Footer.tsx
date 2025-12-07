@@ -72,6 +72,11 @@ export default function Footer() {
                   Confidentialité
                 </a>
               </li>
+              <li>
+                <a href="/data-deletion.html" className="text-gray-400 hover:text-orange-500 transition-colors">
+                  Suppression de données
+                </a>
+              </li>
             </ul>
           </div>
 

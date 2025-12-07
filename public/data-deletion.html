@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de Suppression de Données - Fitmates</title>
+    <link rel="icon" type="image/png" href="/fitmate_logo_short.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9fafb;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f57c00 0%, #ef4444 100%);
+            color: white;
+            padding: 2rem 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+        }
+
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .info-box {
+            background: #fef3e7;
+            border-left: 4px solid #f57c00;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        h2 {
+            color: #f57c00;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        label .required {
+            color: #ef4444;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #f57c00;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #f57c00 0%, #ef4444 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 124, 0, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background: #d1fae5;
+            border: 2px solid #059669;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error-message {
+            background: #fee2e2;
+            border: 2px solid #dc2626;
+            color: #991b1b;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .footer {
+            background: #1f2937;
+            color: #9ca3af;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer a {
+            color: #f57c00;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <img src="/fitmate_logo_short.png" alt="Fitmates Logo" class="logo">
+            <h1>Demande de Suppression de Données</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="info-box">
+            <strong>Vos droits en matière de protection des données</strong>
+            <p style="margin-top: 0.5rem; margin-bottom: 0;">
+                Conformément au RGPD, vous avez le droit de demander la suppression de vos données personnelles.
+                Remplissez ce formulaire et nous traiterons votre demande dans un délai de 30 jours.
+            </p>
+        </div>
+
+        <div id="successMessage" class="success-message">
+            <strong>✓ Demande envoyée avec succès !</strong>
+            <p style="margin-top: 0.5rem; margin-bottom: 0;">
+                Nous avons bien reçu votre demande de suppression de données. Vous recevrez un email de confirmation sous peu.
+            </p>
+        </div>
+
+        <div id="errorMessage" class="error-message">
+            <strong>✗ Une erreur s'est produite</strong>
+            <p id="errorText" style="margin-top: 0.5rem; margin-bottom: 0;"></p>
+        </div>
+
+        <form id="deletionForm">
+            <h2>Informations requises</h2>
+
+            <div class="form-group">
+                <label for="fullName">
+                    Nom complet <span class="required">*</span>
+                </label>
+                <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    required
+                    placeholder="Votre nom complet"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="email">
+                    Adresse e-mail <span class="required">*</span>
+                </label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="votre.email@example.com"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="reason">
+                    Raison de la suppression (optionnel)
+                </label>
+                <textarea
+                    id="reason"
+                    name="reason"
+                    placeholder="Dites-nous pourquoi vous souhaitez supprimer vos données (optionnel)"
+                ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Envoyer la demande
+            </button>
+        </form>
+
+        <p style="margin-top: 2rem; font-size: 0.9rem; color: #6b7280;">
+            <strong>Note :</strong> Cette action est irréversible. Une fois vos données supprimées,
+            vous ne pourrez plus récupérer votre compte ni vos informations.
+        </p>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Fitmates. Tous droits réservés.</p>
+        <p>
+            <a href="/">Retour à l'accueil</a> •
+            <a href="/privacy-policy.html">Politique de confidentialité</a> •
+            <a href="/terms.html">Conditions d'utilisation</a>
+        </p>
+    </footer>
+
+    <script type="module">
+        const form = document.getElementById('deletionForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorText = document.getElementById('errorText');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
+            // Get form data
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                reason: document.getElementById('reason').value || 'Non spécifiée'
+            };
+
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="loading"></span>Envoi en cours...';
+
+            try {
+                const supabaseUrl = window.SUPABASE_URL;
+
+                const response = await fetch(`${supabaseUrl}/functions/v1/data-deletion-request`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.message || 'Erreur lors de l\'envoi de la demande');
+                }
+
+                // Show success message
+                successMessage.style.display = 'block';
+                form.reset();
+
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            } catch (error) {
+                console.error('Error:', error);
+                errorText.textContent = error.message || 'Une erreur inattendue s\'est produite. Veuillez réessayer.';
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Envoyer la demande';
+            }
+        });
+    </script>
+    <script>
+        // Use the Supabase URL for API calls
+        window.SUPABASE_URL = 'https://0ec90b57d6e95fcbda19832f.supabase.co';
+    </script>
+</body>
+</html>
