@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 import Hero from './components/Hero';
+import ActivityFeed from './components/ActivityFeed';
+import CommunityProfiles from './components/CommunityProfiles';
+import SocialInteractions from './components/SocialInteractions';
+import UserGeneratedContent from './components/UserGeneratedContent';
 import Features from './components/Features';
 import SportsSupported from './components/SportsSupported';
 import HowItWorks from './components/HowItWorks';
@@ -39,23 +43,33 @@ function App() {
             </span>
           </div>
           <div className="hidden md:flex items-center gap-6">
-            <a href="#features" className="text-gray-700 hover:text-orange-500 transition-colors">
-              Fonctionnalités
+            <a href="#feed" className="text-gray-700 hover:text-orange-500 transition-colors">
+              Explorer
             </a>
-            <a href="#how" className="text-gray-700 hover:text-orange-500 transition-colors">
-              Comment ça marche
+            <a href="#community" className="text-gray-700 hover:text-orange-500 transition-colors">
+              Communauté
             </a>
-            <a href="#download" className="text-gray-700 hover:text-orange-500 transition-colors">
-              Télécharger
+            <a href="#groups" className="text-gray-700 hover:text-orange-500 transition-colors">
+              Groupes
+            </a>
+            <a href="#leaderboard" className="text-gray-700 hover:text-orange-500 transition-colors">
+              Leaderboard
+            </a>
+            <a href="#events" className="text-gray-700 hover:text-orange-500 transition-colors">
+              Événements
             </a>
             <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-shadow">
-              Commencer
+              Rejoindre
             </button>
           </div>
         </div>
       </nav>
 
       <Hero />
+      <ActivityFeed />
+      <CommunityProfiles />
+      <SocialInteractions />
+      <UserGeneratedContent />
       <HowItWorks />
       <Screenshots />
       <Features />

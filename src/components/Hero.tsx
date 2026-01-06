@@ -11,14 +11,22 @@ export default function Hero() {
           {/* Left Content */}
           <div className="space-y-8 animate-fade-in-up">
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-              Trouvez vos{' '}
+              Le réseau social des{' '}
               <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-                partenaires sportifs
+                sportifs
               </span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Organisez et rejoignez des événements sportifs près de chez vous
+              Connecte-toi, échange, inspire et bouge ensemble
             </p>
+            <div className="space-y-3">
+              <p className="text-lg text-gray-600">
+                Découvre ton activité sportive chaque jour grâce à ta communauté
+              </p>
+              <p className="text-lg text-gray-600">
+                Suivez vos amis, partagez vos progrès, vos conseils et vos sessions
+              </p>
+            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
