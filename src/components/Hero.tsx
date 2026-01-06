@@ -56,7 +56,7 @@ export default function Hero() {
             <div className="relative z-10">
               <div className="bg-gradient-to-br from-orange-400 to-red-500 rounded-[3rem] p-8 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=800&fit=crop"
+                  src="/screenshot_homescreen.png"
                   alt="Fitmates App"
                   className="w-full rounded-[2rem] shadow-xl"
                 />
