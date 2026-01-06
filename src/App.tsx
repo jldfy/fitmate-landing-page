@@ -56,10 +56,10 @@ function App() {
       </nav>
 
       <Hero />
-      <Features />
-      <SportsSupported />
       <HowItWorks />
       <Screenshots />
+      <Features />
+      <SportsSupported />
       <Stats />
       <DownloadCTA />
       <Footer />
