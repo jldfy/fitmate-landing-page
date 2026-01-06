@@ -24,33 +24,6 @@ const testimonials = [
   },
 ];
 
-const stories = [
-  {
-    user: 'Marc L.',
-    activity: 'Trail 20km',
-    image: '/screenshot_homescreen.png',
-    time: '2h',
-  },
-  {
-    user: 'Emma R.',
-    activity: 'Yoga matinal',
-    image: '/screenshot_event_creation_2.png',
-    time: '5h',
-  },
-  {
-    user: 'Tom B.',
-    activity: 'Cycling 50km',
-    image: '/screenshot_join_event.png',
-    time: '8h',
-  },
-  {
-    user: 'Lisa M.',
-    activity: 'Running 10km',
-    image: '/screenshot_conversation.png',
-    time: '12h',
-  },
-];
-
 export default function UserGeneratedContent() {
   return (
     <section className="py-20 bg-white">
@@ -69,35 +42,6 @@ export default function UserGeneratedContent() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Des histoires inspirantes et des moments partagés par notre communauté active
           </p>
-        </div>
-
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-            <Camera className="w-6 h-6 text-orange-500" />
-            Stories de la journée
-          </h3>
-          <div className="flex gap-4 overflow-x-auto pb-4">
-            {stories.map((story, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-32 cursor-pointer group"
-              >
-                <div className="relative rounded-2xl overflow-hidden mb-2 border-4 border-orange-500">
-                  <img
-                    src={story.image}
-                    alt={story.activity}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-2 left-2 right-2">
-                    <p className="text-white text-xs font-semibold truncate">{story.activity}</p>
-                    <p className="text-white/80 text-xs">Il y a {story.time}</p>
-                  </div>
-                </div>
-                <p className="text-sm text-center text-gray-700 font-medium truncate">{story.user}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
