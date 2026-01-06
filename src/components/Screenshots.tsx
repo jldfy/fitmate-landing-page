@@ -1,4 +1,19 @@
 export default function Screenshots() {
+  const features = [
+    {
+      title: 'Connectez-vous',
+      description: 'Rejoignez une communauté active de sportifs passionnés',
+    },
+    {
+      title: 'Organisez',
+      description: 'Créez vos événements sportifs en quelques secondes',
+    },
+    {
+      title: 'Participez',
+      description: 'Découvrez et rejoignez des activités près de chez vous',
+    },
+  ];
+
   const screenshots = [
     {
       title: 'Fil d\'actualité',
@@ -35,6 +50,21 @@ export default function Screenshots() {
           <p className="text-xl text-gray-400">
             Une interface intuitive pour une expérience sportive exceptionnelle
           </p>
+        </div>
+
+        {/* Three Key Features */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700 hover:border-orange-500 transition-all duration-300"
+            >
+              <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+                {feature.title}
+              </h3>
+              <p className="text-gray-400">{feature.description}</p>
+            </div>
+          ))}
         </div>
 
         {/* Screenshots Carousel */}
