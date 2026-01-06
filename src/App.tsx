@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Hero from './components/Hero';
-import ActivityFeed from './components/ActivityFeed';
 import CommunityProfiles from './components/CommunityProfiles';
 import UserGeneratedContent from './components/UserGeneratedContent';
 import Features from './components/Features';
@@ -65,7 +64,6 @@ function App() {
       </nav>
 
       <Hero />
-      <ActivityFeed />
       <CommunityProfiles />
       <UserGeneratedContent />
       <HowItWorks />
