@@ -22,20 +22,30 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
-              <button className="flex items-center gap-3 bg-black text-white px-8 py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg">
+              <a
+                href="https://apps.apple.com/fr/app/fitmates-sports-social/id6756283890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-black text-white px-8 py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg"
+              >
                 <Apple className="w-6 h-6" />
                 <div className="text-left">
                   <div className="text-xs">Télécharger sur</div>
                   <div className="text-lg font-semibold">App Store</div>
                 </div>
-              </button>
-              <button className="flex items-center gap-3 bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg">
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.dlahlou.fitmate"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg"
+              >
                 <Smartphone className="w-6 h-6" />
                 <div className="text-left">
                   <div className="text-xs">Télécharger sur</div>
                   <div className="text-lg font-semibold">Google Play</div>
                 </div>
-              </button>
+              </a>
             </div>
 
             {/* Small Stats */}

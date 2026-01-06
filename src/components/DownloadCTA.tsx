@@ -20,20 +20,30 @@ export default function DownloadCTA() {
 
               {/* Download Buttons */}
               <div className="flex flex-wrap justify-center gap-4 pt-4">
-                <button className="flex items-center gap-3 bg-black text-white px-8 py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg">
+                <a
+                  href="https://apps.apple.com/fr/app/fitmates-sports-social/id6756283890"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 bg-black text-white px-8 py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg"
+                >
                   <Apple className="w-7 h-7" />
                   <div className="text-left">
                     <div className="text-xs">Télécharger sur</div>
                     <div className="text-xl font-semibold">App Store</div>
                   </div>
-                </button>
-                <button className="flex items-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg">
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.dlahlou.fitmate"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg"
+                >
                   <Smartphone className="w-7 h-7" />
                   <div className="text-left">
                     <div className="text-xs">Télécharger sur</div>
                     <div className="text-xl font-semibold">Google Play</div>
                   </div>
-                </button>
+                </a>
               </div>
 
               {/* QR Code Section */}
