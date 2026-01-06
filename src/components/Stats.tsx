@@ -41,15 +41,6 @@ export default function Stats() {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Une communauté dynamique
-          </h2>
-          <p className="text-xl text-white/90">
-            Des milliers d'interactions chaque jour
-          </p>
-        </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {stats.map((stat, index) => (
             <div
