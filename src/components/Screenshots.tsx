@@ -2,19 +2,23 @@ export default function Screenshots() {
   const screenshots = [
     {
       title: 'Fil d\'actualité',
-      image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=800&fit=crop',
+      image: '/screenshot_homescreen.png',
+    },
+    {
+      title: 'Conversation de groupe',
+      image: '/screenshot_conversation.png',
     },
     {
       title: 'Détails d\'événement',
-      image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=800&fit=crop',
+      image: '/screenshot_event_details.png',
     },
     {
-      title: 'Profil utilisateur',
-      image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=800&fit=crop',
+      title: 'Rejoindre un événement',
+      image: '/screenshot_join_event.png',
     },
     {
-      title: 'Chat de groupe',
-      image: 'https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=400&h=800&fit=crop',
+      title: 'Créer un événement',
+      image: '/screenshot_event_creation_2.png',
     },
   ];
 
