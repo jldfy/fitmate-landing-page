@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Hero from './components/Hero';
 import ActivityFeed from './components/ActivityFeed';
 import CommunityProfiles from './components/CommunityProfiles';
-import SocialInteractions from './components/SocialInteractions';
 import UserGeneratedContent from './components/UserGeneratedContent';
 import Features from './components/Features';
 import SportsSupported from './components/SportsSupported';
@@ -68,7 +67,6 @@ function App() {
       <Hero />
       <ActivityFeed />
       <CommunityProfiles />
-      <SocialInteractions />
       <UserGeneratedContent />
       <HowItWorks />
       <Screenshots />
