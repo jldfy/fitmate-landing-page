@@ -9,9 +9,11 @@ import Screenshots from './components/Screenshots';
 import Stats from './components/Stats';
 import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
+import { detectDevice, getDownloadLink, getButtonText } from './utils/deviceDetection';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
+  const [deviceType, setDeviceType] = useState(() => detectDevice());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,9 +58,14 @@ function App() {
             <a href="#events" className="text-gray-700 hover:text-orange-500 transition-colors">
               Événements
             </a>
-            <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-shadow">
-              Rejoindre
-            </button>
+            <a
+              href={getDownloadLink(deviceType)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-shadow"
+            >
+              {getButtonText(deviceType)}
+            </a>
           </div>
         </div>
       </nav>
