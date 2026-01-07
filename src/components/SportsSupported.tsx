@@ -25,7 +25,7 @@ const sports = [
 
 export default function SportsSupported() {
   return (
-    <section className="py-20 bg-gradient-to-br from-orange-50 via-white to-red-50">
+    <section id="sports" className="py-20 bg-gradient-to-br from-orange-50 via-white to-red-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">

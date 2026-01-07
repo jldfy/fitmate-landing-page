@@ -63,7 +63,7 @@ const profiles = [
 
 export default function CommunityProfiles() {
   return (
-    <section className="py-20 bg-white">
+    <section id="communaute" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-600 px-4 py-2 rounded-full mb-4">

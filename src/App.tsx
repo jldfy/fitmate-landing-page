@@ -51,20 +51,17 @@ function App() {
             {getButtonText(deviceType)}
           </a>
           <div className="hidden md:flex items-center gap-6">
-            <a href="#feed" className="text-gray-700 hover:text-orange-500 transition-colors">
-              Explorer
-            </a>
-            <a href="#community" className="text-gray-700 hover:text-orange-500 transition-colors">
+            <a href="#communaute" className="text-gray-700 hover:text-orange-500 transition-colors">
               Communauté
             </a>
-            <a href="#groups" className="text-gray-700 hover:text-orange-500 transition-colors">
-              Groupes
+            <a href="#fonctionnalites" className="text-gray-700 hover:text-orange-500 transition-colors">
+              Fonctionnalités
             </a>
-            <a href="#leaderboard" className="text-gray-700 hover:text-orange-500 transition-colors">
-              Leaderboard
+            <a href="#sports" className="text-gray-700 hover:text-orange-500 transition-colors">
+              Sports
             </a>
-            <a href="#events" className="text-gray-700 hover:text-orange-500 transition-colors">
-              Événements
+            <a href="#app" className="text-gray-700 hover:text-orange-500 transition-colors">
+              L'App
             </a>
             <a
               href={getDownloadLink(deviceType)}
