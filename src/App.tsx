@@ -42,6 +42,14 @@ function App() {
               FITMATES
             </span>
           </div>
+          <a
+            href={getDownloadLink(deviceType)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="md:hidden bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-shadow"
+          >
+            {getButtonText(deviceType)}
+          </a>
           <div className="hidden md:flex items-center gap-6">
             <a href="#feed" className="text-gray-700 hover:text-orange-500 transition-colors">
               Explorer
