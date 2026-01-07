@@ -48,13 +48,16 @@ export default function Screenshots() {
                 <div className="relative w-72">
                   {/* Phone Frame */}
                   <div className="relative bg-gradient-to-br from-orange-500 to-red-500 rounded-[3rem] p-4 shadow-2xl group-hover:scale-105 transition-transform duration-300">
-                    <img
-                      src={screenshot.image}
-                      alt={screenshot.title}
-                      className="w-full rounded-[2.5rem] shadow-xl"
-                    />
+                    <div className="relative w-full aspect-[9/19] bg-gray-900 rounded-[2.5rem] overflow-hidden">
+                      <img
+                        src={screenshot.image}
+                        alt={screenshot.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
                     {/* Notch */}
-                    <div className="absolute top-6 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-full" />
+                    <div className="absolute top-6 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-full z-10" />
                   </div>
 
                   {/* Label */}
