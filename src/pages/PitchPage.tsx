@@ -10,13 +10,31 @@ const tabs = [
   'Mise en marché',
 ];
 
-function StatCard({ value, label }: { value: string; label: string }) {
+function SourceLink({ href }: { href: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-xs text-orange-500 hover:text-orange-600 underline ml-1 align-super"
+    >
+      source
+    </a>
+  );
+}
+
+function StatCard({ value, label, source }: { value: string; label: string; source?: string }) {
   return (
     <div className="bg-orange-50 border border-orange-100 rounded-2xl p-6 text-center flex-1 min-w-[140px]">
       <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
         {value}
       </div>
       <div className="text-gray-600 mt-2 text-sm">{label}</div>
+      {source && (
+        <div className="mt-2">
+          <SourceLink href={source} />
+        </div>
+      )}
     </div>
   );
 }
@@ -49,16 +67,28 @@ function ProblemeTab() {
       <SectionTitle>Le problème</SectionTitle>
 
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
-        <StatCard value="24 %" label="des Français se sentent régulièrement seuls" />
-        <StatCard value="45 %" label="chez les moins de 25 ans" />
-        <StatCard value="+3 pts" label="en un an" />
+        <StatCard
+          value="24 %"
+          label="des Français se sentent régulièrement seuls"
+          source="https://www.fondationdefrance.org/images/pdf/2025/etude-solitudes-2024_fdf.pdf"
+        />
+        <StatCard
+          value="45 %"
+          label="chez les moins de 25 ans"
+          source="https://www.fondationdefrance.org/images/pdf/2025/etude-solitudes-2024_fdf.pdf"
+        />
+        <StatCard
+          value="+3 pts"
+          label="en un an"
+          source="https://www.fondationdefrance.org/images/pdf/2025/etude-solitudes-2024_fdf.pdf"
+        />
       </div>
 
       <p className="text-gray-700 text-lg mb-4">
         La solitude progresse, et elle touche en priorité la génération la plus connectée de l'histoire.
       </p>
       <p className="text-gray-700 text-lg mb-4">
-        Et pourtant. Ce même pays fait plus de sport que jamais. 58 % des Français pratiquent une activité physique régulière. +4 points depuis 2018.
+        Et pourtant. Ce même pays fait plus de sport que jamais. 58 % des Français pratiquent une activité physique régulière. +4 points depuis 2018.<SourceLink href="https://injep.fr/publication/barometre-national-des-pratiques-sportives-2024/" />
       </p>
       <p className="text-gray-700 text-lg mb-4">
         Plus de sportifs, plus de solitude. Deux chiffres qui coexistent dans le même pays, au même moment. Le paradoxe s'explique en une phrase : la majorité pratique seule. Hors club. Hors structure. Hors lien.
@@ -69,7 +99,7 @@ function ProblemeTab() {
           Le sport est là. Le lien, <span className="text-orange-500">non</span>.
         </p>
         <p className="text-gray-300 mb-4">
-          Les gens qui font du sport ensemble tiennent plus longtemps, se sentent mieux, progressent plus vite et reviennent plus souvent. À 6 mois : <span className="text-orange-500 font-bold">84 % de rétention en groupe</span>. <span className="text-orange-500 font-bold">63 % en solo</span>. <span className="text-orange-500 font-bold">42 % d'abandon en salle</span> avant le sixième mois.
+          Les gens qui font du sport ensemble tiennent plus longtemps, se sentent mieux, progressent plus vite et reviennent plus souvent. À 6 mois : <span className="text-orange-500 font-bold">84 % de rétention en groupe</span>. <span className="text-orange-500 font-bold">63 % en solo</span>. <span className="text-orange-500 font-bold">42 % d'abandon en salle</span> avant le sixième mois.<a href="https://pubmed.ncbi.nlm.nih.gov/12473421/" target="_blank" rel="noopener noreferrer" className="text-xs text-orange-400 hover:text-orange-300 underline ml-1 align-super">source</a>
         </p>
         <p className="text-white font-semibold">
           Le sport tue la solitude — mais seulement quand il est <span className="text-orange-500">social</span>.
@@ -77,7 +107,7 @@ function ProblemeTab() {
       </DarkBox>
 
       <p className="text-gray-700 text-lg mb-4">
-        Le problème dépasse la France. En 2023, l'OMS a déclaré officiellement que le monde était entré dans une « épidémie de solitude ». Une personne sur six concernée. Un impact sanitaire comparable à 15 cigarettes par jour. Premier levier d'action recommandé : multiplier les occasions de contact réel.
+        Le problème dépasse la France. En 2023, l'OMS a déclaré officiellement que le monde était entré dans une « épidémie de solitude ». Une personne sur six concernée. Un impact sanitaire comparable à 15 cigarettes par jour. Premier levier d'action recommandé : multiplier les occasions de contact réel.<SourceLink href="https://www.who.int/fr/news/item/15-11-2023-who-launches-commission-to-foster-social-connection" />
       </p>
       <p className="text-gray-700 text-lg mb-4">
         Le sport fait ça mieux que n'importe quoi d'autre. Contact physique. Rendez-vous récurrent. Effort partagé. Communauté immédiate.
@@ -90,7 +120,7 @@ function ProblemeTab() {
       </p>
 
       <Sources>
-        Fondation de France / CRÉDOC, Solitudes 2024 · INJEP / CRÉDOC, Baromètre national des pratiques sportives 2024 · OMS, Commission sur le lien social 2023–2025 · Burke et al., méta-analyse Group vs Individual Approach · Cox et al., S.W.E.A.T. Study
+        <a href="https://www.fondationdefrance.org/images/pdf/2025/etude-solitudes-2024_fdf.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 underline">Fondation de France / CRÉDOC, Solitudes 2024</a> · <a href="https://injep.fr/publication/barometre-national-des-pratiques-sportives-2024/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 underline">INJEP / CRÉDOC, Baromètre national des pratiques sportives 2024</a> · <a href="https://www.who.int/fr/news/item/15-11-2023-who-launches-commission-to-foster-social-connection" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 underline">OMS, Commission sur le lien social 2023–2025</a> · <a href="https://www.researchgate.net/publication/228622237_Group_versus_Individual_Approach_A_Meta-Analysis_of_the_Effectiveness_of_Interventions_to_promote_physical_activity" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 underline">Burke et al., méta-analyse Group vs Individual Approach</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/12473421/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 underline">Cox et al., S.W.E.A.T. Study</a>
       </Sources>
     </div>
   );
@@ -197,7 +227,7 @@ function ConcurrenceTab() {
       <SectionTitle>La concurrence</SectionTitle>
 
       <p className="text-gray-700 text-lg mb-8">
-        250+ solutions digitales recensées par le Pôle Ressources National Sport-Innovations. Des dizaines ont identifié le bon problème. Aucune n'a trouvé la bonne exécution.
+        250+ solutions digitales recensées par le Pôle Ressources National Sport-Innovations. Des dizaines ont identifié le bon problème. Aucune n'a trouvé la bonne exécution.<SourceLink href="https://www.sports.gouv.fr/decouvrez-la-cartographie-des-250-solutions-digitales-qui-reinventent-le-sport-en-france-3224" />
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -261,7 +291,7 @@ function ConcurrenceTab() {
       </DarkBox>
 
       <Sources>
-        Cartographie PRNSI 2025 (250+ solutions) · INJEP Baromètre 2024 : 16 % des non-pratiquants citent l'absence de partenaire comme frein principal
+        <a href="https://www.sports.gouv.fr/decouvrez-la-cartographie-des-250-solutions-digitales-qui-reinventent-le-sport-en-france-3224" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 underline">Cartographie PRNSI 2025 (250+ solutions)</a> · <a href="https://injep.fr/publication/barometre-national-des-pratiques-sportives-2024/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 underline">INJEP Baromètre 2024 : 16 % des non-pratiquants citent l'absence de partenaire comme frein principal</a>
       </Sources>
     </div>
   );
