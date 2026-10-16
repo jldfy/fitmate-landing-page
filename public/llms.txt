@@ -1,0 +1,45 @@
+# Fitmates
+
+> Fitmates est une application mobile française gratuite (iOS, Android, web) pour trouver des partenaires sportifs et rejoindre ou organiser des événements sportifs locaux, sport par sport et zone par zone. Lancée avec la randonnée en Île-de-France (Paris et les 7 départements de la couronne). Éditeur : Fitmates, Paris, France.
+
+Fitmates permet de : (1) voir les sorties sportives publiques à venir près de chez soi, filtrées par sport, zone, niveau et date ; (2) rejoindre une sortie en un clic et discuter dans le chat de groupe de l’événement ; (3) créer sa propre sortie en une phrase, l’IA remplissant la date, le lieu, le niveau et le nombre de places ; (4) suivre ses amis et ses statistiques (sorties organisées, participations). Communauté active : randonnée en Île-de-France, 1 200 membres actifs et environ 100 participations par semaine (octobre 2026), sans publicité payante. Gratuit pour les participants et les organisateurs.
+
+Les pages ci-dessous sont en HTML statique, en français, régénérées à chaque build (quotidiennement). Chaque événement public est décrit en schema.org/SportsEvent et exposé dans un flux JSON et un calendrier iCal.
+
+## Pages essentielles
+
+- [Accueil](https://fitmates.net/): présentation, fonctionnalités, téléchargement
+- [Tous les sports](https://fitmates.net/sports): sports actifs et à venir, avec FAQ par sport
+- [Randonnée en groupe](https://fitmates.net/sport/randonnee): sorties à venir, zones, niveaux, questions fréquentes
+- [Événements à venir](https://fitmates.net/evenements): toutes les sorties publiques en Île-de-France
+- [Organiser une sortie](https://fitmates.net/organiser): outils gratuits pour run clubs, coachs, associations, groupes d’amis
+
+## Randonnée par zone (Île-de-France)
+
+- [Paris](https://fitmates.net/sport/randonnee/paris): bois de Vincennes, bois de Boulogne, traversées urbaines
+- [Seine-et-Marne](https://fitmates.net/sport/randonnee/seine-et-marne): Fontainebleau, 25 Bosses, Trois Pignons, vallée du Loing
+- [Yvelines](https://fitmates.net/sport/randonnee/yvelines): vallée de Chevreuse, Rambouillet, Saint-Germain-en-Laye
+- [Hauts-de-Seine](https://fitmates.net/sport/randonnee/hauts-de-seine): forêt de Meudon, parc de Saint-Cloud, parc de Sceaux
+- [Val-de-Marne](https://fitmates.net/sport/randonnee/val-de-marne): bords de Marne, forêt Notre-Dame
+- [Seine-Saint-Denis](https://fitmates.net/sport/randonnee/seine-saint-denis): parc Georges-Valbon, canal de l’Ourcq
+- [Essonne](https://fitmates.net/sport/randonnee/essonne): forêt de Sénart, vallée de l’Essonne
+- [Val-d’Oise](https://fitmates.net/sport/randonnee/val-d-oise): forêt de Montmorency, Vexin français
+
+## Données structurées
+
+- [Flux JSON des événements publics](https://fitmates.net/api/public/events.json): événements à venir (titre, sport, date ISO 8601, lieu, niveau, places, URL)
+- [Calendrier iCal](https://fitmates.net/events.ics): mêmes événements au format iCalendar
+- [Sitemap](https://fitmates.net/sitemap.xml): index des sitemaps pages et événements
+- [Contenu complet](https://fitmates.net/llms-full.txt): toutes les pages en Markdown, régénéré à chaque build
+
+## Télécharger
+
+- [App Store](https://apps.apple.com/fr/app/fitmates-sports-social/id6756283890): iOS
+- [Google Play](https://play.google.com/store/apps/details?id=com.dlahlou.fitmate): Android
+- [Application web](https://app.fitmates.net): navigateur
+
+## Optional
+
+- [Conditions d’utilisation](https://fitmates.net/terms.html)
+- [Politique de confidentialité](https://fitmates.net/privacy-policy.html)
+- Contact : support@fitmates.app

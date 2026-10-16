@@ -1,0 +1,36 @@
+[
+  {
+    "id": "evt_000001",
+    "slug": "rando-25-bosses-fontainebleau-2026-10-25",
+    "title": "Randonnée des 25 Bosses – Fontainebleau",
+    "sport": "randonnee",
+    "description": "Boucle sportive de 16 km et ~800 m D+ dans la forêt des Trois Pignons. Rendez-vous gare de Bois-le-Roi, retour vers 17h. Prévoir 2 L d'eau et un pique-nique.",
+    "start_at": "2026-10-25T09:30:00+02:00",
+    "end_at": "2026-10-25T17:00:00+02:00",
+    "timezone": "Europe/Paris",
+    "zone": "seine-et-marne",
+    "location": {
+      "name": "Gare de Bois-le-Roi",
+      "address": "Place de la Gare",
+      "city": "Bois-le-Roi",
+      "postal_code": "77590",
+      "department": "77",
+      "lat": 48.4746,
+      "lng": 2.7036
+    },
+    "level": "avance",
+    "distance_km": 16,
+    "elevation_m": 800,
+    "duration_min": 420,
+    "max_participants": 15,
+    "participants_count": 9,
+    "price_eur": 0,
+    "organizer": { "id": "usr_123", "display_name": "Clara M.", "is_coach": false, "events_organized": 12 },
+    "status": "open",
+    "approval_mode": "auto",
+    "app_url": "https://app.fitmates.net/events/evt_000001",
+    "image_url": null,
+    "created_at": "2026-10-10T18:02:00Z",
+    "updated_at": "2026-10-15T08:11:00Z"
+  }
+]

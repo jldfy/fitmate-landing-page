@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import Hero from './components/Hero';
 import CommunityProfiles from './components/CommunityProfiles';
 import UserGeneratedContent from './components/UserGeneratedContent';
@@ -9,71 +8,15 @@ import Screenshots from './components/Screenshots';
 import Stats from './components/Stats';
 import DownloadCTA from './components/DownloadCTA';
 import Footer from './components/Footer';
-import { detectDevice, getDownloadLink, getButtonText } from './utils/deviceDetection';
+import SiteNav from './components/SiteNav';
+import Seo from './seo/Seo';
+import { homeMeta } from './seo/meta';
 
 function App() {
-  const [scrolled, setScrolled] = useState(false);
-  const [deviceType, setDeviceType] = useState(() => detectDevice());
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-white shadow-lg py-3' : 'bg-transparent py-5'
-        }`}
-      >
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img
-              src="/fitmate_logo_short.png"
-              alt="Fitmates Logo"
-              className="h-10 w-10"
-            />
-            <span className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-              FITMATES
-            </span>
-          </div>
-          <a
-            href={getDownloadLink(deviceType)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="md:hidden bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-shadow"
-          >
-            {getButtonText(deviceType)}
-          </a>
-          <div className="hidden md:flex items-center gap-6">
-            <a href="#communaute" className="text-gray-700 hover:text-orange-500 transition-colors">
-              Communauté
-            </a>
-            <a href="#fonctionnalites" className="text-gray-700 hover:text-orange-500 transition-colors">
-              Fonctionnalités
-            </a>
-            <a href="#sports" className="text-gray-700 hover:text-orange-500 transition-colors">
-              Sports
-            </a>
-            <a href="#app" className="text-gray-700 hover:text-orange-500 transition-colors">
-              L'App
-            </a>
-            <a
-              href={getDownloadLink(deviceType)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-shadow"
-            >
-              {getButtonText(deviceType)}
-            </a>
-          </div>
-        </div>
-      </nav>
+      <Seo meta={homeMeta()} />
+      <SiteNav />
 
       <Hero />
       <CommunityProfiles />

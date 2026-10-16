@@ -1,45 +1,48 @@
 <!doctype html>
 <html lang="fr">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/fitmate_logo_short.png" />
+    <link rel="apple-touch-icon" href="/fitmate_logo_short.png" />
+    <meta name="theme-color" content="#f97316" />
+    <meta name="author" content="Fitmates" />
+    <meta name="apple-itunes-app" content="app-id=6756283890" />
+    <link rel="alternate" type="application/json" title="Événements Fitmates (JSON)" href="/api/public/events.json" />
+    <link rel="alternate" type="text/calendar" title="Événements Fitmates (iCal)" href="/events.ics" />
+
+    <!--seo:start-->
+    <title>Fitmates – Trouvez des partenaires sportifs et des événements près de chez vous</title>
+    <meta name="description" content="Fitmates est l’application gratuite pour faire du sport à plusieurs : rejoignez ou organisez des randonnées, sorties running, vélo et plus en Île-de-France. Chat de groupe, niveaux, amis. iOS, Android et web." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://fitmates.net/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Fitmates" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="Fitmates – Trouvez des partenaires sportifs et des événements près de chez vous" />
+    <meta property="og:description" content="Rejoignez ou organisez des sorties sportives près de chez vous. Gratuit sur iOS, Android et web." />
+    <meta property="og:url" content="https://fitmates.net/" />
+    <meta property="og:image" content="https://fitmates.net/screenshot_homescreen.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fitmates – Trouvez des partenaires sportifs et des événements près de chez vous" />
+    <meta name="twitter:description" content="Rejoignez ou organisez des sorties sportives près de chez vous. Gratuit sur iOS, Android et web." />
+    <meta name="twitter:image" content="https://fitmates.net/screenshot_homescreen.png" />
+    <!--seo:end-->
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9H3VR0TF7"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-M9H3VR0TF7');
     </script>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/fitmate_logo_short.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fitmates - Trouvez vos partenaires sportifs</title>
-
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Fitmates est la plateforme sociale qui connecte les passionnés de sport. Organisez et rejoignez des événements sportifs près de chez vous. Disponible sur iOS et Android." />
-    <meta name="keywords" content="social fitness app, sports events, find sports partners, partenaires sportifs, événements sportifs, fitness social, randonnée, course à pied, vélo" />
-    <meta name="author" content="Fitmates" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Fitmates - Trouvez vos partenaires sportifs" />
-    <meta property="og:description" content="Organisez et rejoignez des événements sportifs près de chez vous" />
-    <meta property="og:image" content="/fitmate_logo_short.png" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Fitmates - Trouvez vos partenaires sportifs" />
-    <meta name="twitter:description" content="Organisez et rejoignez des événements sportifs près de chez vous" />
-    <meta name="twitter:image" content="/fitmate_logo_short.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <meta property="og:image" content="https://bolt.new/static/og_default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
-</head>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

@@ -1,17 +1,20 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "fitmates-landing-page",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/fetch-events.mjs && vite",
+    "fetch:events": "node scripts/fetch-events.mjs",
+    "build:client": "vite build",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist-server",
+    "prerender": "node scripts/prerender.mjs",
+    "build": "npm run fetch:events && npm run build:client && npm run build:server && npm run prerender",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.57.4",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

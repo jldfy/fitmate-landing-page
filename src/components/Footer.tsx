@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Twitter, Mail } from 'lucide-react';
+import { Facebook } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -24,26 +24,26 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">À propos</h3>
+            <h3 className="font-bold text-lg mb-4">Découvrir</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
-                  Notre histoire
+                <a href="/sports" className="text-gray-400 hover:text-orange-500 transition-colors">
+                  Tous les sports
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
-                  Équipe
+                <a href="/sport/randonnee" className="text-gray-400 hover:text-orange-500 transition-colors">
+                  Randonnée en Île-de-France
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
-                  Carrières
+                <a href="/evenements" className="text-gray-400 hover:text-orange-500 transition-colors">
+                  Événements à venir
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
-                  Blog
+                <a href="/organiser" className="text-gray-400 hover:text-orange-500 transition-colors">
+                  Organiser une sortie
                 </a>
               </li>
             </ul>
@@ -52,11 +52,6 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Support</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
-                  Centre d'aide
-                </a>
-              </li>
               <li>
                 <a href="mailto:support@fitmates.app" className="text-gray-400 hover:text-orange-500 transition-colors">
                   Contact
@@ -80,30 +75,12 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4">Suivez-nous</h3>
             <div className="flex gap-4">
               <a
-                href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-colors"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
                 href="https://www.facebook.com/fitmatestrongertogether"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-colors"
               >
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-500 transition-colors"
-              >
-                <Mail className="w-5 h-5" />
               </a>
             </div>
             <p className="text-gray-400 text-sm mt-6">
@@ -114,7 +91,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-          <p>© 2025 Fitmates. Tous droits réservés.</p>
+          <p>© 2026 Fitmates. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

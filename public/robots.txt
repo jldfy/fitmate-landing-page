@@ -1,0 +1,68 @@
+# fitmates.net — robots.txt
+# Tout est public et indexable : moteurs classiques et assistants IA.
+# Seule exception : Bytespider (scraper sans distribution utile en France).
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# OpenAI — OAI-SearchBot (ChatGPT search), GPTBot (entraînement), ChatGPT-User (fetch à la demande)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic — Claude-SearchBot (index), Claude-User (fetch), ClaudeBot (entraînement)
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google-Extended : grounding/entraînement Gemini (n'affecte pas Search ni AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# Apple — Siri / Spotlight / Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta, Amazon (Alexa), Common Crawl
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: *
+Allow: /
+Disallow: /pitch
+Disallow: /admin
+Disallow: /*?utm_
+
+Sitemap: https://fitmates.net/sitemap.xml

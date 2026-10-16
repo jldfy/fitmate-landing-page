@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Fitmates – Leads</title>
+<style>
+  :root { --o: #f97316; --r: #ef4444; --bg: #f8fafc; --line: #e5e7eb; --txt: #111827; --muted: #6b7280; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--txt); }
+  header { background: linear-gradient(90deg, var(--o), var(--r)); color: #fff; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  header h1 { font-size: 18px; margin: 0; }
+  main { padding: 16px 20px; max-width: 1400px; margin: 0 auto; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .tile { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+  .tile b { display: block; font-size: 24px; }
+  .tile span { color: var(--muted); font-size: 12px; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  select, input, textarea, button { font: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; background: #fff; }
+  button.primary { background: var(--o); color: #fff; border-color: var(--o); cursor: pointer; }
+  button.ghost { cursor: pointer; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 13px; }
+  th { background: #fff7ed; color: #9a3412; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+  tr:hover td { background: #fffaf5; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+  .t-participant { background: #dbeafe; color: #1e40af; } .t-organisateur { background: #ffedd5; color: #9a3412; } .t-partenaire { background: #ede9fe; color: #5b21b6; }
+  .s-nouveau { background: #fee2e2; color: #991b1b; } .s-contacte { background: #fef3c7; color: #92400e; } .s-qualifie { background: #dbeafe; color: #1e40af; } .s-converti { background: #dcfce7; color: #166534; } .s-perdu { background: #f3f4f6; color: #374151; }
+  .msg { max-width: 320px; white-space: pre-wrap; color: #374151; }
+  .overdue { color: #b91c1c; font-weight: 600; }
+  .small { color: var(--muted); font-size: 11px; }
+  textarea { width: 100%; min-height: 56px; }
+  .row-actions { display: flex; flex-direction: column; gap: 4px; min-width: 150px; }
+  @media (max-width: 800px) { th:nth-child(6), td:nth-child(6) { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Fitmates · Leads</h1>
+  <div>
+    <button class="ghost" id="refresh">Rafraîchir</button>
+    <a id="csv" href="/api/admin/leads.csv"><button class="primary">Exporter CSV</button></a>
+  </div>
+</header>
+<main>
+  <div class="tiles" id="tiles"></div>
+  <div class="filters">
+    <select id="f-status"><option value="">Tous statuts</option><option value="nouveau">Nouveau</option><option value="contacte">Contacté</option><option value="qualifie">Qualifié</option><option value="converti">Converti</option><option value="perdu">Perdu</option></select>
+    <select id="f-type"><option value="">Tous types</option><option value="participant">Participant</option><option value="organisateur">Organisateur</option><option value="partenaire">Partenaire</option></select>
+    <input id="f-sport" placeholder="sport (slug)" size="14" />
+    <input id="f-zone" placeholder="zone (slug)" size="14" />
+    <input id="f-q" placeholder="recherche email, prénom, message, notes" size="34" />
+    <button class="primary" id="apply">Filtrer</button>
+  </div>
+  <table>
+    <thead><tr><th>Date</th><th>Type</th><th>Contact</th><th>Sport / Zone</th><th>Message</th><th>Source</th><th>Statut</th><th>Suivi</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+</main>
+<script>
+const $ = (s) => document.querySelector(s);
+const STATUSES = { nouveau: 'Nouveau', contacte: 'Contacté', qualifie: 'Qualifié', converti: 'Converti', perdu: 'Perdu' };
+const fmt = (iso) => iso ? new Date(iso).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }) : '';
+const today = new Date().toISOString().slice(0, 10);
+async function api(path, opts) { const r = await fetch(path, { headers: { 'Content-Type': 'application/json' }, ...opts }); if (!r.ok) throw new Error(r.status); return r.json(); }
+function params() {
+  const p = new URLSearchParams();
+  for (const [k, id] of [['status','#f-status'],['type','#f-type'],['sport','#f-sport'],['zone','#f-zone'],['q','#f-q']]) { const v = $(id).value.trim(); if (v) p.set(k, v); }
+  return p.toString();
+}
+async function loadStats() {
+  const s = await api('/api/admin/stats');
+  const tiles = [
+    ['Total', s.total], ['7 derniers jours', s.last7], ['30 derniers jours', s.last30], ['Relances en retard', s.overdue],
+    ['Nouveaux', s.byStatus.nouveau || 0], ['Organisateurs', s.byType.organisateur || 0], ['Participants', s.byType.participant || 0], ['Partenaires', s.byType.partenaire || 0],
+  ];
+  $('#tiles').innerHTML = tiles.map(([l, v]) => `<div class="tile"><b>${v}</b><span>${l}</span></div>`).join('')
+    + `<div class="tile"><span>Top sports</span><div class="small">${s.bySport.slice(0,5).map(x => `${x.sport} (${x.n})`).join(' · ') || '–'}</div><span>Top zones</span><div class="small">${s.byZone.slice(0,5).map(x => `${x.zone} (${x.n})`).join(' · ') || '–'}</div></div>`;
+}
+async function load() {
+  const q = params();
+  $('#csv').href = '/api/admin/leads.csv' + (q ? '?' + q : '');
+  const { leads } = await api('/api/admin/leads' + (q ? '?' + q : ''));
+  $('#rows').innerHTML = leads.map((l) => `
+    <tr data-id="${l.id}">
+      <td>${fmt(l.created_at)}<div class="small">${l.utm && l.utm.utm_source ? 'utm: ' + l.utm.utm_source : ''}</div></td>
+      <td><span class="badge t-${l.type}">${l.type}</span></td>
+      <td><b>${esc(l.first_name || '')}</b><br><a href="mailto:${esc(l.email)}">${esc(l.email)}</a></td>
+      <td>${esc(l.sport || '–')}<br><span class="small">${esc(l.zone || '–')}</span></td>
+      <td class="msg">${esc(l.message || '')}</td>
+      <td class="small">${esc(l.source || '')}</td>
+      <td>
+        <select data-k="status">${Object.entries(STATUSES).map(([v, t]) => `<option value="${v}" ${l.status === v ? 'selected' : ''}>${t}</option>`).join('')}</select>
+        <div><input data-k="owner" placeholder="responsable" value="${esc(l.owner || '')}" size="10" /></div>
+      </td>
+      <td class="row-actions">
+        <input type="date" data-k="next_action_at" value="${l.next_action_at || ''}" class="${l.next_action_at && l.next_action_at < today && !['converti','perdu'].includes(l.status) ? 'overdue' : ''}" />
+        <textarea data-k="notes" placeholder="notes (appel, relance, résultat)">${esc(l.notes || '')}</textarea>
+        <button class="ghost" data-del>Supprimer (RGPD)</button>
+      </td>
+    </tr>`).join('') || '<tr><td colspan="8">Aucun lead pour ces filtres.</td></tr>';
+}
+function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+document.addEventListener('change', async (e) => {
+  const k = e.target.dataset.k; if (!k) return;
+  const id = e.target.closest('tr').dataset.id;
+  await api('/api/admin/leads/' + id, { method: 'PATCH', body: JSON.stringify({ [k]: e.target.value }) });
+  if (k === 'status') { loadStats(); }
+  e.target.style.outline = '2px solid #22c55e'; setTimeout(() => (e.target.style.outline = ''), 600);
+});
+document.addEventListener('click', async (e) => {
+  if (!e.target.hasAttribute('data-del')) return;
+  const id = e.target.closest('tr').dataset.id;
+  if (!confirm('Supprimer définitivement ce lead ?')) return;
+  await api('/api/admin/leads/' + id, { method: 'DELETE' });
+  load(); loadStats();
+});
+$('#apply').onclick = load; $('#refresh').onclick = () => { load(); loadStats(); };
+$('#f-q').addEventListener('keydown', (e) => e.key === 'Enter' && load());
+load(); loadStats();
+</script>
+</body>
+</html>

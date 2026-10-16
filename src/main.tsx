@@ -1,17 +1,22 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App.tsx';
-import PitchPage from './pages/PitchPage.tsx';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './routes';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root')!;
+const tree = (
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/pitch" element={<PitchPage />} />
-      </Routes>
+      <AppRoutes />
     </BrowserRouter>
   </StrictMode>
 );
+
+// Les pages publiques sont prérendues en HTML statique (scripts/prerender.mjs) : on hydrate.
+// Les routes non prérendues (ex. /pitch) partent d'un <div id="root"> vide : on monte.
+if (container.hasChildNodes()) {
+  hydrateRoot(container, tree);
+} else {
+  createRoot(container).render(tree);
+}

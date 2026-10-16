@@ -1,0 +1,17 @@
+services:
+  leads:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8787:8787"   # exposer via Caddy / Nginx en HTTPS sur leads.fitmates.net
+    environment:
+      ADMIN_USER: ${ADMIN_USER:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?définir ADMIN_PASSWORD dans .env}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://fitmates.net,https://www.fitmates.net}
+      LEAD_WEBHOOK_URL: ${LEAD_WEBHOOK_URL:-}
+      IP_SALT: ${IP_SALT:-change-me}
+      RATE_LIMIT_PER_HOUR: ${RATE_LIMIT_PER_HOUR:-10}
+    volumes:
+      - leads-data:/data
+volumes:
+  leads-data:

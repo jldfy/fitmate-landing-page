@@ -1,14 +1,15 @@
 export type DeviceType = 'ios' | 'android' | 'desktop';
 
 export function detectDevice(): DeviceType {
-  const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+  if (typeof navigator === 'undefined') return 'desktop';
+  const userAgent = navigator.userAgent || navigator.vendor || '';
   const isTablet = /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(userAgent);
 
   if (isTablet) {
     return 'desktop';
   }
 
-  if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
     return 'ios';
   }
 
