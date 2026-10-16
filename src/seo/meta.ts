@@ -2,6 +2,7 @@ import { SITE, abs } from './site';
 import { SPORTS, getSport, type Sport } from '../data/sports';
 import { ZONES, getZone, type Zone } from '../data/zones';
 import { EVENTS, upcomingEvents, getEvent, LEVEL_LABEL, type FitmatesEvent } from '../data/events';
+import { ORGANISER_GUIDES, getOrganiserGuide, type OrganiserGuide } from '../data/organiserGuides';
 
 export interface PageMeta {
   path: string;
@@ -277,6 +278,25 @@ export function organiserMeta(): PageMeta {
   };
 }
 
+export function organiserGuideMeta(g: OrganiserGuide): PageMeta {
+  return {
+    path: `/organiser/${g.slug}`,
+    title: `${g.title} | Fitmates`,
+    description: g.description,
+    canonical: abs(`/organiser/${g.slug}`),
+    jsonLd: graph([
+      breadcrumbLd([{ name: 'Accueil', path: '/' }, { name: 'Organiser', path: '/organiser' }, { name: g.h1, path: `/organiser/${g.slug}` }]),
+      {
+        '@type': 'HowTo',
+        name: g.h1,
+        description: g.description,
+        step: g.steps.map((st, i) => ({ '@type': 'HowToStep', position: i + 1, name: st.title, text: st.text })),
+      },
+      faqLd(g.faq),
+    ]),
+  };
+}
+
 export function notFoundMeta(path: string): PageMeta {
   return { path, title: 'Page introuvable | Fitmates', description: 'Cette page n’existe pas.', canonical: abs(path), noindex: true };
 }
@@ -288,7 +308,12 @@ export function metaForPath(pathname: string): PageMeta {
   if (p === '/sports') return sportsIndexMeta();
   if (p === '/evenements') return eventsIndexMeta();
   if (p === '/organiser') return organiserMeta();
-  let m = p.match(/^\/sport\/([^/]+)\/([^/]+)$/);
+  let m = p.match(/^\/organiser\/([^/]+)$/);
+  if (m) {
+    const g = getOrganiserGuide(m[1]);
+    return g ? organiserGuideMeta(g) : notFoundMeta(p);
+  }
+  m = p.match(/^\/sport\/([^/]+)\/([^/]+)$/);
   if (m) {
     const s = getSport(m[1]);
     const z = getZone(m[2]);
@@ -320,6 +345,7 @@ export function publicRoutes(): { path: string; lastmod?: string; priority: numb
     { path: '/sports', priority: 0.8 },
     { path: '/evenements', priority: 0.9 },
     { path: '/organiser', priority: 0.8 },
+    ...ORGANISER_GUIDES.map((g) => ({ path: `/organiser/${g.slug}`, priority: 0.8 })),
   ];
   for (const s of SPORTS) {
     routes.push({ path: `/sport/${s.slug}`, priority: s.live ? 0.9 : 0.6 });

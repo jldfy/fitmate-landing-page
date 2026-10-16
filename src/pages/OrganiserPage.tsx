@@ -3,6 +3,8 @@ import PageShell, { Breadcrumb } from '../components/PageShell';
 import LeadForm from '../components/LeadForm';
 import { organiserMeta } from '../seo/meta';
 import { SITE } from '../seo/site';
+import { ORGANISER_GUIDES } from '../data/organiserGuides';
+import { Link } from 'react-router-dom';
 
 const benefits = [
   { icon: Sparkles, title: 'Créer une sortie en une phrase', text: 'Décris ta sortie (« dimanche 10h, 15 km depuis Bois-le-Roi, niveau intermédiaire »), l’IA remplit la fiche.' },
@@ -58,6 +60,16 @@ export default function OrganiserPage() {
               <h3 className="font-bold text-gray-900">{t}</h3>
               <p className="text-gray-600 text-sm mt-1">{d}</p>
             </div>
+          ))}
+        </div>
+
+        <h2 className="text-2xl font-bold mb-4">Guides pour démarrer</h2>
+        <div className="grid sm:grid-cols-2 gap-4 mb-14">
+          {ORGANISER_GUIDES.map((g) => (
+            <Link key={g.slug} to={`/organiser/${g.slug}`} className="rounded-2xl border border-gray-200 p-5 hover:border-orange-300 hover:shadow-lg transition-all">
+              <h3 className="font-bold text-gray-900">{g.h1}</h3>
+              <p className="text-gray-600 text-sm mt-1">{g.description}</p>
+            </Link>
           ))}
         </div>
 

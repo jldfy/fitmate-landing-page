@@ -17,6 +17,16 @@ interface Props {
 
 const API = (import.meta.env.VITE_LEADS_API_URL as string | undefined)?.replace(/\/$/, '');
 
+/** Événement GA4 (gtag chargé dans index.html). Silencieux si absent. */
+export function track(event: string, params: Record<string, unknown> = {}) {
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+  try {
+    w.gtag?.('event', event, params);
+  } catch {
+    /* ignore */
+  }
+}
+
 export default function LeadForm({ defaultType = 'participant', defaultSport = '', defaultZone = '', source, title, subtitle, compact }: Props) {
   const [type, setType] = useState<LeadType>(defaultType);
   const [state, setState] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle');
@@ -59,6 +69,7 @@ export default function LeadForm({ defaultType = 'participant', defaultSport = '
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      track('generate_lead', { lead_type: type, sport: payload.sport, zone: payload.zone, source });
       setState('ok');
       form.reset();
     } catch {

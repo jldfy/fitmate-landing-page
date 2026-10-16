@@ -13,6 +13,10 @@ Les pages ci-dessous sont en HTML statique, en français, régénérées à chaq
 - [Randonnée en groupe](https://fitmates.net/sport/randonnee): sorties à venir, zones, niveaux, questions fréquentes
 - [Événements à venir](https://fitmates.net/evenements): toutes les sorties publiques en Île-de-France
 - [Organiser une sortie](https://fitmates.net/organiser): outils gratuits pour run clubs, coachs, associations, groupes d’amis
+- [Créer un run club](https://fitmates.net/organiser/run-club): méthode en 5 étapes, allures, parcours, inscriptions
+- [Organiser une randonnée en groupe](https://fitmates.net/organiser/groupe-randonnee): itinéraire en train, niveau, règles, publication
+- [Coach : remplir ses séances collectives](https://fitmates.net/organiser/coach-sportif): format répété, visibilité locale, conversion
+- [Clubs et associations : recruter via des sorties ouvertes](https://fitmates.net/organiser/club-association)
 
 ## Randonnée par zone (Île-de-France)
 

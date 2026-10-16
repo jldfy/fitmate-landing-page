@@ -7,8 +7,8 @@ Document de travail pour l'équipe Fitmates. Chiffres sourcés en fin de documen
 1. **Rester mono-vertical jusqu'à Noël** : randonnée en Île-de-France, en densifiant zone par zone (Seine-et-Marne, Yvelines, Paris, puis 92/94). Ouvrir un sport ou une zone seulement quand 3 organisateurs et 30 participants engagés existent.
 2. **Deuxième sport : la course à pied** (janvier 2027), en recrutant des run clubs parisiens existants plutôt qu'en créant des sorties. Troisième : le padel (printemps 2027), via les clubs.
 3. **Cœur de cible : 25–39 ans, Paris et petite couronne, pratiquant seul**, qui cherche d'abord de la régularité et des gens, pas de la performance. Segment secondaire : 40–59 ans pour la randonnée (le gros des pratiquants actuels).
-4. **Le canal numéro un est l'organisateur**, pas le participant. Un organisateur recruté vaut 20 à 100 participants. Programme « Capitaines Fitmates ».
-5. **Zéro paid media avant mars 2027**, sauf 300 € de tests Apple Search Ads sur les requêtes d'intention. L'argent va dans le terrain, le contenu et les partenariats.
+4. **Le canal numéro un est l'organisateur**, pas le participant : un organisateur vaut 20 à 100 participants. Ils arrivent **par le digital** : pages d'intention « créer un run club », « organiser une randonnée », « coach : remplir ses séances » (livrées), Google Ads sur ces requêtes, séquences email automatiques, preuve sociale sur les pages sport × zone. Aucun démarchage manuel.
+5. **600 €/mois de tests payants dès maintenant** (Apple Search Ads sur l'intention participants, Google Ads sur l'intention organisateurs), Meta/TikTok à partir de mars quand les créas UGC existent. Tout le reste est organique et automatisé.
 6. **SEO programmatique sport × zone + pages événement** (livré dans ce dépôt), avec données structurées et flux publics : c'est le seul canal gratuit, cumulatif et défendable face à Frimake, qui vient de lever 10 M€ pour du marketing.
 7. **Visibilité IA** : rendre chaque événement lisible par ChatGPT, Claude, Perplexity et Google AI Mode (HTML statique, JSON-LD, llms.txt, flux JSON/iCal, Bing/IndexNow), puis un serveur MCP public en 2027.
 8. **Chiffres honnêtes et datés partout** : remplacer les « 10 000+ utilisateurs » de la landing par les vrais chiffres. C'est à la fois une question de crédibilité, de citation par les IA et de conformité (pratiques commerciales trompeuses).
@@ -66,11 +66,11 @@ La course à pied passe devant le padel parce qu'elle partage tout avec la rando
 
 | Phase | Zone | Pourquoi | Levier d'amorçage |
 |---|---|---|---|
-| Maintenant | Seine-et-Marne (Fontainebleau), Yvelines (Chevreuse, Rambouillet), Paris (départs en gare) | déjà le cœur de l'activité rando | Capitaines existants, pages SEO livrées |
-| T4 2026 | Hauts-de-Seine, Val-de-Marne | petite couronne dense, 25–39 ans, bords de Seine et de Marne | 2 Capitaines par département, parcours courts en semaine |
-| T1 2027 | Paris running (par arrondissement : 11ᵉ, 10ᵉ, 19ᵉ, 15ᵉ, 13ᵉ) | run clubs existants, quais, Buttes-Chaumont | recrutement de 10 run clubs |
+| Maintenant | Seine-et-Marne (Fontainebleau), Yvelines (Chevreuse, Rambouillet), Paris (départs en gare) | déjà le cœur de l'activité rando | organisateurs existants, pages SEO livrées, posts automatiques par sortie |
+| T4 2026 | Hauts-de-Seine, Val-de-Marne | petite couronne dense, 25–39 ans, bords de Seine et de Marne | guides organisateurs + Google Ads géociblés, emails participants redirigés vers les sorties 77/78 en attendant |
+| T1 2027 | Paris running (par arrondissement : 11ᵉ, 10ᵉ, 19ᵉ, 15ᵉ, 13ᵉ) | run clubs existants, quais, Buttes-Chaumont | guide « créer un run club » + Google/LinkedIn Ads + annuaires en ligne |
 | T2 2027 | Seine-Saint-Denis, Essonne, Val-d'Oise | population jeune (93), espaces peu saturés | Paris Sport Dimanche, universités, Decathlon |
-| T3 2027 | Lyon (Parc de la Tête d'Or, Monts du Lyonnais), Marseille / Aix (calanques, Sainte-Victoire) | villes où le trail/rando est identitaire | 1 city launcher chacun, 3 mois de pré-recrutement d'organisateurs |
+| T3 2027 | Lyon (Parc de la Tête d'Or, Monts du Lyonnais), Marseille / Aix (calanques, Sainte-Victoire) | villes où le trail/rando est identitaire | pages sport × zone publiées 3 mois avant, Ads organisateurs géociblées, séquences email |
 
 Pour chaque nouvelle zone, le site génère automatiquement les pages sport × zone dès qu'on ajoute la zone dans `src/data/zones.ts` avec ses spots.
 
@@ -83,7 +83,7 @@ Cadre ou salariée du tertiaire, arrivée à Paris pour le travail, pratique seu
 Randonneur régulier, non licencié, en couple ou séparé, organise déjà ses week-ends autour de la marche. Cherche des itinéraires nouveaux et de la compagnie pour les sorties longues. Canaux : Facebook (groupes rando IDF), Google, FFRandonnée, Visorando. Message : « Les plus belles sorties d'Île-de-France, en groupe, accessibles en train. »
 
 ### Organisateur : « Clara, 29 ans, Capitaine »
-Déjà leader d'un groupe (run club Instagram, groupe WhatsApp de rando, BDS, Meetup). Diplômée, motivée d'abord par la convivialité et la reconnaissance (INJEP : la convivialité est la motivation n°1 des bénévoles sportifs, profil plus jeune et plus masculin que le reste de l'associatif, 56 % diplômés du supérieur) [S16]. Douleur : WhatsApp qui déborde, inscrits fantômes, Meetup payant. Offre : outils gratuits, badge, mise en avant, page publique de ses sorties, ligne directe. Canaux : DM Instagram, Meetup, HelloAsso, listes paris.fr, Strava clubs.
+Déjà leader d'un groupe (run club Instagram, groupe WhatsApp de rando, BDS, Meetup). Diplômée, motivée d'abord par la convivialité et la reconnaissance (INJEP : la convivialité est la motivation n°1 des bénévoles sportifs, profil plus jeune et plus masculin que le reste de l'associatif, 56 % diplômés du supérieur) [S16]. Douleur : WhatsApp qui déborde, inscrits fantômes, Meetup payant. Offre : outils gratuits, badge, mise en avant, page publique de ses sorties. Où la toucher en digital : requêtes « créer un run club » / « organiser une randonnée » (guides livrés), Google Ads, LinkedIn, audiences Meta par intérêts (Meetup, Strava, FFRandonnée), annuaires de run clubs.
 
 ### Coach indépendant : « Yanis, 34 ans »
 20 à 35 k coachs en France, majoritairement indépendants, acquisition par Superprof et Instagram. Veut remplir des séances collectives et se faire connaître localement. Offre : visibilité gratuite, séances payantes affichées, puis abonnement organisateur (revenu 1 du modèle).
@@ -141,37 +141,35 @@ Arkose, Climb Up, Urban Soccer, clubs de padel, Decathlon, mairies (Paris Sport 
 
 Monétisation cohérente avec les avis 1★ des concurrents : ne jamais faire payer pour voir les gens ni pour rejoindre. Premium sur le confort (filtres avancés, stats, parcours), abonnement organisateurs/coachs, sponsoring d'activités.
 
-## 7. Acquisition et notoriété : le playbook
+## 7. Acquisition et notoriété : 100 % digital
 
-### Hiérarchie des canaux
+Le détail opérationnel (specs de campagnes, séquences email, calendrier de contenu, automatisations, conventions de mesure) est dans `docs/playbook-digital.md`. Résumé.
 
-| Priorité | Canal | Coût | Rendement attendu | Comment |
-|---|---|---|---|---|
-| 1 | Recrutement direct d'organisateurs | 0 € | 1 organisateur = 20–100 participants | 10 DM/jour (Instagram, Meetup, HelloAsso, listes paris.fr), café, kit Capitaine |
-| 1 | Parrainage in-app « invite ton groupe » à la création d'une sortie | produit | K-factor visé 0,3 (moyenne consumer 0,15–0,25) [S18] | lien d'invitation par événement, badge « a amené X personnes » |
-| 1 | SEO programmatique + pages événement (livré) | 0 € | trafic cumulatif, requêtes « rando groupe IDF », « run club paris » | voir § 8 |
-| 1 | Instagram / TikTok organique | 0–500 €/mois | Reels 15–30 s de vraies sorties ≈ 2× l'engagement des posts | 3 formats : « on y était » (photo de groupe + stats), portrait d'organisateur, « sortie de dimanche » en story le jeudi |
-| 2 | Partenariats terrain | 0 € | centaines de contacts/semaine | Paris Sport Dimanche, FFRandonnée IDF, Decathlon City (cours gratuits), Arkose, Urban Soccer, BDS/SUAPS |
-| 2 | Presse locale | 0 € | pics d'installs, liens (prédicteur n°1 des citations IA) | Le Bonbon, Sortiraparis, Time Out, Paris Secret, Konbini, Enlarge your Paris ; angle run clubs/dating, rando × 5,8 sur Strava |
-| 2 | Apple Search Ads (test) | 300 €/mois | CPI FR ~1,8 $ (fitness 2–7 $) [S19] | mots-clés d'intention : partenaire sport, run club paris, randonnée groupe |
-| 2 | Nano/micro-influence locale | 50–200 €/Reel (nano), 200–1 500 € (micro) [S20] | 3–10 créateurs par zone, suivi par code | run clubs, créateurs rando IDF, « food run clubs » (troc commerces) |
-| 3 | Meta / TikTok Ads géociblées | CPI 2–5 $ | tests par arrondissement/sport à partir de mars 2027 | créas UGC uniquement |
-| 3 | Entreprises (Wellpass, CSE, sport en entreprise) | partenariat | lent, B2B2C | après 5 000 membres |
+### Six portes d'entrée
 
-### Playbook d'ouverture d'une zone (6 semaines)
+| Porte | Participants | Organisateurs | État |
+|---|---|---|---|
+| Google / Bing organique | pages sport × zone, événements (régénérées chaque jour) | guides `/organiser/run-club`, `/organiser/groupe-randonnee`, `/organiser/coach-sportif`, `/organiser/club-association` (HowTo + FAQ) | livré |
+| Assistants IA | mêmes pages + llms.txt + flux JSON/iCal | mêmes guides | livré, MCP à venir |
+| Stores (ASO + Apple Search Ads) | « partenaire sport », « run club paris », concurrents | | fiches à réécrire, 300 €/mois |
+| Google Ads Search | | « créer un run club », « organiser une randonnée », « coach sportif trouver des clients » → guides, conversion GA4 `generate_lead` | 300 €/mois, événement livré |
+| Social organique automatisé | post par sortie depuis le flux, « on y était », portraits | LinkedIn coachs/assos, réponses automatiques aux DM | n8n à installer |
+| Email et parrainage | hebdo « sorties de ta zone », « invite ton groupe » | séquence 5 emails + kit, newsletter Capitaines | Brevo + webhook livré |
 
-1. **S-6 à S-4** : identifier 10 organisateurs potentiels (run clubs, groupes Meetup/Facebook, coachs, assos), en signer 3 (Capitaines). Créer les pages sport × zone (automatique) et 6 sorties récurrentes sur 6 semaines.
-2. **S-3** : 2 sorties « rituel » gratuites et encadrées (coach partenaire) pour garantir un fil plein le jour 1 ; miroir des sorties sur Meetup et agendas mairie avec lien retour.
-3. **S-2** : contenu : 3 Reels tournés sur les sorties test, 1 article presse locale, flyers aux départs de gare (Bois-le-Roi, Saint-Rémy) et dans les magasins partenaires.
-4. **S-1** : parrainage : chaque Capitaine invite son groupe (objectif 30 inscrits).
-5. **S0** : lancement avec un événement « ouverture » (sortie + pique-nique), photo de groupe, stats publiées.
-6. **S+2** : revue : participations réelles, taux de présence, 2ᵉ sortie des nouveaux. Si < seuil, on ne communique pas plus, on recrute d'autres organisateurs.
+### Les deux boucles qui doivent tourner seules
+
+- **Participants** : sortie publiée → page indexée + post automatique → inscriptions → photo de groupe et chiffres → nouveau contenu → nouvelles inscriptions.
+- **Organisateurs** : requête « créer un run club » → guide → formulaire → séquence email + mise en avant 30 jours → première sortie → ses participants deviennent la preuve sociale qui attire le prochain organisateur.
+
+### Règle de densité, version digitale
+
+Une zone est « ouverte » quand elle a 3 organisateurs actifs et 30 participants. En dessous, on ne dépense pas en publicité locale : on laisse le SEO et les séquences travailler, et on redirige les leads participants vers la zone active la plus proche.
 
 ### Calendrier
 
-**90 jours (oct. → déc. 2026)** : déployer le site (ce dépôt) ; brancher le flux événements et le service de leads ; recruter 10 Capitaines rando (77, 78, 75, 92, 94) ; 12 Reels ; 3 articles presse ; Bing Webmaster + Search Console + IndexNow ; fiches stores réécrites ; 20 run clubs contactés pour janvier ; remplacer les chiffres de la landing.
+**90 jours (oct. → déc. 2026)** : site déployé, flux et leads branchés, fiches stores réécrites, Search Console + Bing + IndexNow, Apple Search Ads et Google Ads lancés, Brevo et n8n installés, 12 semaines de contenu produites depuis les sorties réelles, guides organisateurs indexés, chiffres honnêtes sur la landing.
 
-**12 mois** : janvier : lancement course à pied Paris (10 run clubs) ; février–mars : pages rando prêtes pour la saison, test Apple Search Ads ; avril : padel (5 clubs IDF) + vélo ; mai–juin : 93/91/95, Paris Sport Dimanche ; septembre : rentrée (universités, run clubs, padel), pré-recrutement Lyon/Marseille ; octobre 2027 : lancement Lyon.
+**12 mois** : janvier, course à pied à Paris (pré-inscriptions run clubs par les guides et LinkedIn) ; février–mars, saison rando (pages prêtes, budget Ads doublé), tests Meta/TikTok avec les premières UGC ; avril, padel et vélo ; mai–juin, 93/91/95 ; septembre, rentrée (universités en ligne, run clubs, padel) ; octobre 2027, Lyon via les mêmes pages, préremplies 3 mois avant.
 
 ## 8. SEO
 
@@ -228,12 +226,12 @@ Livré : HTML statique, JSON-LD, `llms.txt` (défini, chiffré, daté), `llms-fu
 
 **Pipeline** : `nouveau → contacté → qualifié → converti | perdu`.
 
-**Règles de traitement** :
-- Organisateur : rappel sous 48 h (message type + proposition d'appel de 15 min), kit Capitaine, première sortie créée ensemble dans l'app, suivi à J+14 (a-t-il publié ?), conversion = 2 sorties publiées.
-- Participant : email automatique quand une sortie correspond (sport × zone × niveau), relance quand la zone ouvre ; conversion = 1 participation.
-- Partenaire : qualification (type, taille, besoin), proposition en 3 formats (visibilité gratuite, sponsoring de sorties, séances encadrées).
+**Règles de traitement (automatisées, séquences dans `docs/playbook-digital.md`)** :
+- Organisateur : email J0 avec kit et guide, J+2 témoignage, J+7 et J+21 relances conditionnelles (sortie publiée ou non), mise en avant 30 jours des premières sorties ; conversion = 2 sorties publiées. Seule action humaine : répondre aux réponses.
+- Participant : email hebdo « sorties de ta zone » généré depuis le flux, tant que pas d'installation ; conversion = 1 participation.
+- Partenaire : accusé avec 3 formats et lien de rendez-vous, relances J+3 et J+10.
 
-**Sources de leads organisateurs (30 cibles, IDF)** : Paname Run Club, Collision, Kiin, Team Trail Paris, Marais Running Club, food run clubs, Club Ville de Paris (Strava), Paris Sport Dimanche, Le Tremplin (Paris&Co), Région IDF Ambassadeurs du sport, DRAJES IDF, FFRandonnée Paris/IDF, Rand'Oz, Randonneurs du XIᵉ, Power Hiking Paris, Les Joyeux Marcheurs, Intrepid Hikers, Campus Coach IDF, Enlarge Your Paris, Decathlon City (Saint-Germain, rue du Commerce), Decathlon Outdoor, Arkose, Climb Up, Urban Soccer / Le Five, Ligue IDF de Tennis (padel), clubs Playtomic IDF, ASSU Sorbonne, AS Paris 8, BDS Paris Cité, EGYM Wellpass. Détail et portes d'entrée dans le rapport canaux (annexe).
+**Où les organisateurs existent déjà (pour le ciblage publicitaire et le contenu, pas pour du démarchage)** : run clubs parisiens (Paname, Collision, Kiin, Team Trail Paris, Marais Running Club, food run clubs), groupes Meetup rando (Les Joyeux Marcheurs, Power Hiking Paris, Intrepid Hikers), clubs listés sur paris.fr, Campus Coach IDF, coachs Superprof/Protrainer, BDS et SUAPS, salles (Arkose, Climb Up), centres (Urban Soccer), clubs de padel. Ces audiences se ciblent par intérêts et titres sur Meta, LinkedIn et Google, et se touchent par les guides organisateurs et les annuaires en ligne.
 
 ## 11. KPIs et tableau de bord
 
@@ -253,13 +251,13 @@ Livré : HTML statique, JSON-LD, `llms.txt` (défini, chiffré, daté), `llms-fu
 
 ## 12. Ce qui est livré, ce qui reste
 
-**Livré (ce dépôt, branche `claude/stoic-lovelace-cmhs0e`)** : prérendu statique, pages sports / sport × zone / événements / organiser, données structurées, robots, sitemaps, llms.txt, flux JSON et iCal, formulaires de leads, service de leads auto-hébergé, workflow de rebuild quotidien, script Google Trends, contrat de données backend (`docs/acces-donnees.md`).
+**Livré (ce dépôt, branche `claude/stoic-lovelace-cmhs0e`)** : prérendu statique, pages sports / sport × zone / événements / organiser, quatre guides d'acquisition organisateurs (HowTo + FAQ), événement GA4 `generate_lead`, données structurées, robots, sitemaps, llms.txt, flux JSON et iCal, formulaires de leads, service de leads auto-hébergé, workflow de rebuild quotidien, script Google Trends, contrat de données backend (`docs/acces-donnees.md`).
 
-**À faire par toi** :
+**À faire par toi (tout est digital, rien n'est du démarchage)** :
 1. Backend : exposer `/public/events.json` (et `stats.json`) au format documenté ; donner l'URL (variable `EVENTS_FEED_URL`).
-2. Déployer `leads-service/` sur le VPS (Docker, Caddy), définir `VITE_LEADS_API_URL` côté site.
+2. Déployer `leads-service/` sur le VPS (Docker, Caddy), définir `VITE_LEADS_API_URL` côté site ; brancher le webhook sur Brevo (séquences dans le playbook).
 3. Vercel : `VERCEL_DEPLOY_HOOK_URL` dans les secrets GitHub pour le rebuild quotidien (ou cron sur le VPS si le site y est buildé).
-4. Search Console, Bing Webmaster, IndexNow.
+4. Search Console, Bing Webmaster, IndexNow ; comptes Apple Search Ads et Google Ads avec les specs du playbook.
 5. **Remplacer les chiffres fictifs de la landing** (10 000+ utilisateurs, 50 000+ événements, 500 000+ messages, « top contributeurs ») par les chiffres réels : ils contredisent `llms.txt`, le pitch (1 200 utilisateurs) et exposent à une qualification de pratique commerciale trompeuse. Je ne les ai pas modifiés sans ton accord ; c'est un changement de 15 minutes dans `src/components/Hero.tsx` et `src/components/Stats.tsx`.
 6. Uniformiser le domaine : le site est sur fitmates.net, le support sur fitmates.app ; choisir une adresse (`contact@fitmates.net`) et rediriger l'autre.
 

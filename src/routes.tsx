@@ -7,6 +7,7 @@ import SportZonePage from './pages/SportZonePage';
 import EventsPage from './pages/EventsPage';
 import EventPage from './pages/EventPage';
 import OrganiserPage from './pages/OrganiserPage';
+import OrganiserGuidePage from './pages/OrganiserGuidePage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export default function AppRoutes() {
@@ -20,6 +21,7 @@ export default function AppRoutes() {
       <Route path="/evenements" element={<EventsPage />} />
       <Route path="/evenements/:slug" element={<EventPage />} />
       <Route path="/organiser" element={<OrganiserPage />} />
+      <Route path="/organiser/:slug" element={<OrganiserGuidePage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
