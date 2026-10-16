@@ -25,3 +25,5 @@ src/data/events.generated.json
 dist-server
 dist-dev
 docs/strategie-marketing-2026.html
+fitmates-claude-branch.bundle
+fitmates-claude-branch.patch
